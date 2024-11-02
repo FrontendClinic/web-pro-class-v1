@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .box-active {
+        border-radius: 20px;
+        border-color: blueviolet;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*  */
+        /*  */
+        /*  */
+        /*  */
+        /*  */
+        /*  */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn" class="bg-green-500 border border-red-500 p-3">
+      My First Page
+    </button>
+    <div
+      class="p-5 border border-red-500 h-[700px] w-[700px] mx-auto"
+      id="box"
+    ></div>
+    <script>
+      // select elemen by Id
+      const button = document.getElementById("btn");
+      const box = document.getElementById("box");
+      const h1 = document.createElement("h1");
+      h1.innerHTML = "WELCOME TO DOM MANIPULATION";
+      h1.className = "text-2xl text-center font-bold text-white";
+      // Add event listener to selected elements
+      button.addEventListener("mouseenter", () => {
+        box.style.backgroundColor = generateRandomColor();
+        box.appendChild(h1);
+      });
+
+      button.addEventListener("mouseleave", () => {
+        box.classList.remove("box-active");
+        box.removeChild(h1);
+        box.style.backgroundColor = generateRandomColor();
+      });
+
+      function generateRandomColor() {
+        let randomColor = "#" + Math.floor(Math.random() * 1677215).toString(8);
+        console.log(randomColor);
+
+        return randomColor;
+      }
+
+    //   for loop
+
+    
+    </script>
+  </body>
+</html>
