@@ -6,7 +6,7 @@ const lastName = splittedString[length - 1];
 
 // console.log(nameString.split("_")[nameString.split("_").length-1]);
 
-// FUNTIONS
+// FUNCTIONS
 // function addTwoNumbers(num1, num2){
 //     let result = num1 + num2;
 //     console.log("our function is still running");
