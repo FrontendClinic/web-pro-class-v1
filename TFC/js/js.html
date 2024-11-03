@@ -5,12 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style></style>
+    <style>
+        .parent {
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            width: 800px;
+            height: 2000px;
+            border: 2px solid red;
+            padding: 10px;
+            margin: auto;
+            /* position: relative; */
+        }
+        .child{
+            width: 40%;
+            height: 50%;
+            border: 1px solid black;
+        }
+        .child1{
+            position: absolute;
+            border-color: gold;
+            top: 0;
+            width: 50%;
+            right: 0;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
     <p id="text" >heere</p>
-    <button id="btn" >Click me </button>
+    <div class="parent">
+        <div class="child1 child">
+            child 1
+        </div>
+        <div class="child2 child">
+            child 2
+        </div>
+    </div>
+    <button id="btn" class="p-absolute">Click me </button>
+
     <script>
        
 
@@ -31,6 +67,25 @@
         //     addTwoNumbers()
     
         // });
+        // loops
+        const students = [
+            {
+                "name":"Temitope Aladesiun",
+                "age":20,
+                "matric_no":"103214"
+            },
+            {
+                "name":"Hikmah Adeyemo",
+                "age":20,
+                "matric_no":"183214"
+            },
+        ];
+        // for (declaration, condition, increment/decrement)
+        for (let i = 0; i < students.length; i++) {
+            const student = students[i];
+            console.log(student);
+            
+        }
         
         
     </script>
