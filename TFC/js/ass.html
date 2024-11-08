@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main-box" class="w-[80%]  my-[10vh] mx-auto ">
+        <div class="border border-[blue] flex items-center h-[70vh] justify-between mx-auto p-8 ">
+            <div class="box w-[45%] min-h-[400px] max-h-[90%] border border-[#888] p-5">
+                <h1 class="mb-3 text-center text-[20px] font-[600]">Students below 18</h1>
+                <div id="box1" class="pb-6 mb-3"></div>
+
+            </div>
+
+            <div class="box w-[45%] min-h-[400px] max-h-[90%] border border-[#888] p-5">
+                <h1 class="mb-3 text-center text-[20px] font-[600]">Students above 18</h1>
+                <div id="box2" class="pb-6 mb-3"></div>
+            </div>
+
+        </div>
+
+        <div class="addbox w-fit mx-auto mt-6">
+            <input type="text" id="nameinput"
+                class="border border-[#888] mb-3 w-[300px] outline-none px-3 py-1 rounded-md" value=""
+                placeholder="add a new name"></br>
+            <input type="number" id="ageinput"
+                class="border border-[#888] w-[300px] mb-3 outline-none px-3 py-1 rounded-md" placeholder="add age"><br>
+            <button id="btn"
+                class="bg-black outline-none text-white rounded-md px-4 py-1 w-[100px] block mx-auto">Add</button>
+        </div>
+    </div>
+
+
+    <script src="./ass.js"></script>
+</body>
+
+</html>
