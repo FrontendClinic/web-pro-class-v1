@@ -1,4 +1,4 @@
-console.log("hello");
+// console.log("hello");
 const students = [
     { name: "Alice Johnson", matric_number: "MAT12345", age:10 },
     { name: "Bob Smith", matric_number: "MAT12346", age:23 },
@@ -35,13 +35,14 @@ const newStudents = students.map((eachStudent,index) => {
     };
 });
 
-const isEligibleStudents = students.filter((eachStudent)=>{
-    return eachStudent.age >= 18;
-})
-const isnotEligibleStudents = students.filter((eachStudent)=>{
-    return eachStudent.age < 18;
-})
+// const isEligibleStudents = students.filter((eachStudent)=>{
+//     return eachStudent.age >= 18;
+// })
+// const isnotEligibleStudents = students.filter((eachStudent)=>{
+//     return eachStudent.age < 18;
+// })
 
-console.log("students=>", students);
+// console.log("students=>", students);
+console.log(newStudents);
 
-console.log("isEligibleStudents=>", isEligibleStudents);
+// console.log("isEligibleStudents=>", isEligibleStudents);
