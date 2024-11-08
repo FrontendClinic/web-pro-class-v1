@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Name And Age Filter</title>
+
+    <style>
+        /* .box {
+            width: 200px;
+            height: 150px;
+            background-color: blue;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        } */
+
+        .flex-properties {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            height: 100%;
+            width: 100%;
+            gap: 50px;
+        }
+
+        .flex-properties div {
+            min-width: 300px;
+            width: 50px;
+            height: 200px;
+            background-color: pink;
+            padding-left: 100px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        /* .container {
+            width: fit-content;
+            margin: 200px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="flex-properties">
+
+
+        <div class="container" id="Student-above-18">
+
+            <h4>Students 18 and above</h4>
+
+            <form>
+
+                <label for="fname">Full Name:</label>
+                <input class="100px" type="text" id="fname" name="Full Name" placeholder=" Enter Your Full Name">
+            </form>
+            <br><br>
+
+            <label for="fage">Age:</label>
+            <input class="100px" type="text" id="fage" name="Age" placeholder=" Enter Your Age">
+            <br><br>
+
+            <button onclick="addStudent('above')">Add Student</button>
+        </div>
+
+        <div class="container" id="student-below-18">
+
+            <h4>Students below 18</h4>
+
+            <form>
+
+                <label for="fname">Full Name:</label>
+                <input type="text" id="fname" name="Full Name" placeholder="Enter Your Full Name">
+            </form>
+            <br><br>
+
+            <label for="fage">Age:</label>
+            <input number="100px" type="text" id="fage" name="Age" placeholder=" Enter Your Age">
+
+            <br><br>
+
+            <button onclick="addStudent('below')">Add Student</button>
+            <button onclick="addStudent('above')">Add Student</button>
+        </div>
+
+    </div>
+
+    <script>
+        const students = [
+            { name: "Alice", age: 18 },
+            { name: "Bob", age: 19 },
+            { name: "Charlie", age: 20 },
+            { name: "Diana", age: 21 },
+            { name: "Evan", age: 22 },
+            { name: "Tom", age: 12 },
+            { name: "Lucy", age: 14 },
+            { name: "Jack", age: 15 },
+            { name: "Emma", age: 16 },
+            { name: "Oliver", age: 13 },
+
+        ];
+
+
+        const below18Array = students.filter((student) => student.age >= 18);
+        const above18Array = students.filter((student) => student.age <= 18);
+
+
+
+
+        const newStudent = students.map((eachstudent) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = eachstudent.name;
+
+            if (eachstudent.age < 18) {
+                below18.appendChild(listItem);
+            } else {
+                above18.appendChild(listItem);
+            }
+
+            return eachstudent;
+
+            console.log(newStudent);
+        });
+
+        
+
+    </script>
+
+
+</body>
+
+</html>
+
+
