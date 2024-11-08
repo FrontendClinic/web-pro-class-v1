@@ -9,7 +9,7 @@ const students = [
   { name: "Grace Lee", matric_number: "MAT12351", age: 40 },
   { name: "Henry Wilson", matric_number: "MAT12352", age: 18 },
   { name: "Ivy Clark", matric_number: "MAT12353", age: 39 },
-  { name: "Jack White", matric_number: "MAT12354", age: 50 },
+  { name: "Jack White", matric_number: "MAT12354", age: 50 }
 ];
 
 const randNickNames = [
@@ -26,7 +26,9 @@ const randNickNames = [
   "adaripon",
 ];
 
+
 const newStudents = students.map((eachStudent, index) => {
+
   return {
     ...eachStudent,
     nick_name: randNickNames[index],
@@ -35,11 +37,19 @@ const newStudents = students.map((eachStudent, index) => {
 
 const isEligibleStudents = students.filter((eachStudent) => {
   return eachStudent.age >= 18;
-});
+})
 const isnotEligibleStudents = students.filter((eachStudent) => {
   return eachStudent.age < 18;
-});
+})
 
 console.log("students=>", students);
 
 console.log("isEligibleStudents=>", isEligibleStudents);
+
+
+
+
+
+
+
+
