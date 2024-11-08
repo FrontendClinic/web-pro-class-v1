@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div id="main-box" class="w-[80%]  my-[10vh] mx-auto ">
+        <div class="border border-[blue] flex items-center h-[70vh] justify-between mx-auto p-8 ">
+            <div class="box w-[45%] min-h-[400px] max-h-[90%] border border-[#888] p-5">
+                <h1 class="mb-3 text-center text-[20px] font-[600]">Students below 18</h1>
+                <ul id="below18box" class="pb-6 mb-3"></ul>
+            </div>
+
+            <div class="box w-[45%] min-h-[400px] max-h-[90%] border border-[#888] p-5">
+                <h1 class="mb-3 text-center text-[20px] font-[600]">Students above 18</h1>
+                <ul id="above18box" class="pb-6 mb-3"></ul>
+            </div>
+
+        </div>
+
+        <div class="addbox w-fit mx-auto mt-6">
+            <input type="text" id="nameInput" name="name"
+                class="border border-[#888] mb-3 w-[300px] outline-none px-3 py-1 rounded-md" value=""
+                placeholder="add a new name">
+            </br>
+            <input type="number" id="matricInput" name="matric_number"
+            class="border border-[#888] w-[300px] mb-3 outline-none px-3 py-1 rounded-md"><br>
+            <input type="number" id="ageInput" name="age"
+                class="border border-[#888] w-[300px] mb-3 outline-none px-3 py-1 rounded-md"><br>
+            <button id="btn" onclick="addNewStudent()"
+                class="bg-black outline-none text-white rounded-md px-4 py-1 w-[100px] mx-auto">Add</button>
+        </div>
+    </div>
+    <script>
+        const above18box = document.querySelector("#above18box");
+        const below18box = document.querySelector("#below18box");
+
+        const newName = document.querySelector("#nameInput");
+        const newAge = document.querySelector("#ageInput");
+        const newMatric = document.querySelector("#matricInput");
+
+        const students = [
+            { name: "Alice Johnson", matric_number: "MAT12345", age: 10 },
+            { name: "Bob Smith", matric_number: "MAT12346", age: 23 },
+            { name: "Carol Williams", matric_number: "MAT12347", age: 11 },
+            { name: "David Brown", matric_number: "MAT12348", age: 12 },
+            { name: "Eva Davis", matric_number: "MAT12349", age: 14 },
+            { name: "Frank Miller", matric_number: "MAT12350", age: 50 },
+            { name: "Grace Lee", matric_number: "MAT12351", age: 40 },
+            { name: "Henry Wilson", matric_number: "MAT12352", age: 18 },
+            { name: "Ivy Clark", matric_number: "MAT12353", age: 39 },
+            { name: "Jack White", matric_number: "MAT12354", age: 50 },
+        ];
+
+        const initializeApp = () => {
+            const above18Array = students.filter((student) => student.age >= 18);
+            const below18Array = students.filter((student) => student.age < 18);
+            above18Array.map((student, index) => {
+                above18box.innerHTML += `
+            <li>${index + 1}: ${student.name}, age:${student.age}, ${student.matric_number}</li>
+            `
+            })
+            below18Array.map((student, index) => {
+                below18box.innerHTML += `
+            <li>${index + 1}: ${student.name}, age:${student.age}, ${student.matric_number}</li>
+            `
+            })
+        }
+        initializeApp();
+
+        // add new students
+        const addNewStudent = () => {
+            let newStudent = {
+                name: newName.value,
+                age: newAge.value,
+                matric_number: newMatric.value
+            }
+            students.push(newStudent)
+            console.log(newStudent, "new stduent");
+            console.log(students);
+
+            newAge.value = "";
+            newMatric.value = "";
+            newName.value = "";
+            above18box.innerHTML = "" ;
+            below18box.innerHTML = "" ;
+
+            // call func
+            initializeApp();
+        };
+
+    </script>
+</body>
+
+</html>
