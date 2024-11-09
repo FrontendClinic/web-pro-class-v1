@@ -47,7 +47,7 @@
         const newAge = document.querySelector("#ageInput");
         const newMatric = document.querySelector("#matricInput");
 
-        const students = [
+        let students = [
             { name: "Alice Johnson", matric_number: "MAT12345", age: 10 },
             { name: "Bob Smith", matric_number: "MAT12346", age: 23 },
             { name: "Carol Williams", matric_number: "MAT12347", age: 11 },
@@ -59,22 +59,36 @@
             { name: "Ivy Clark", matric_number: "MAT12353", age: 39 },
             { name: "Jack White", matric_number: "MAT12354", age: 50 },
         ];
+       
+        const removeStudent = (MatNum)=>{
+            students = students.filter((student)=> student.matric_number != MatNum)
+            above18box.innerHTML = "";
+            below18box.innerHTML = "";
+            initializeApp();
+        }
+
 
         const initializeApp = () => {
             const above18Array = students.filter((student) => student.age >= 18);
             const below18Array = students.filter((student) => student.age < 18);
             above18Array.forEach((student, index) => {
                 above18box.innerHTML += `
-            <li class="text-gray-700 px-3 py-2 bg-green-100 rounded-md hover:bg-green-200 transition">${index + 1}: ${student.name}, age: ${student.age}, matric: ${student.matric_number}</li>
+            <li class="flex justify-between text-gray-700 px-3 py-2 bg-green-100 rounded-md hover:bg-green-200 transition">${index + 1}: ${student.name}, age: ${student.age}, matric: ${student.matric_number}
+                    <button id="btn"  onclick="removeStudent('${student.matric_number}')"
+                class="bg-red-500 text-white rounded-md px-4 py-2  mt-2 hover:bg-blue-700 transition">Delete</button>
+            </li>
             `
             });
             below18Array.forEach((student, index) => {
                 below18box.innerHTML += `
-            <li class="text-gray-700 px-3 py-2 bg-blue-100 rounded-md hover:bg-blue-200 transition">${index + 1}: ${student.name}, age: ${student.age}, matric: ${student.matric_number}</li>
+            <li class="flex justify-between  text-gray-700 px-3 py-2 bg-blue-100 rounded-md hover:bg-blue-200 transition">${index + 1}: ${student.name}, age: ${student.age}, matric: ${student.matric_number}
+                 <button onclick="removeStudent('${student.name}')"
+                class="bg-red-500 text-white rounded-md px-4 py-2  mt-2 hover:bg-blue-700 transition">Delete</button></li>
             `
             });
         };
         initializeApp();
+        
 
         const addNewStudent = () => {
             let newStudent = {
@@ -95,4 +109,6 @@
     </script>
 </body>
 
-</html>
+</html> 
+
+
