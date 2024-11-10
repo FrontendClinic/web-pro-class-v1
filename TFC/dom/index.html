@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -13,8 +13,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-           
-            
             /*  */
             /*  */
             /*  */
@@ -23,12 +21,17 @@
             /*  */
         }
     </style>
-</head>
-<body>
-    <button id="btn" class="bg-green-500 border border-red-500 p-3">My First Page</button>
-    <div class="p-5 border border-red-500 h-[700px] w-[700px] mx-auto" id="box"></div>
+  </head>
+  <body>
+    <button id="btn" class="bg-green-500 border border-red-500 p-3">
+      My First Page
+    </button>
+    <div
+      class="p-5 border border-red-500 h-[700px] w-[700px] mx-auto"
+      id="box"
+    ></div>
     <script>
-        // select element by Id
+        // select elemen by Id
         const button = document.getElementById("btn");
         const box = document.getElementById("box");
         const h1 = document.createElement("h1");
@@ -49,28 +52,13 @@
         })
 
         function generateRandomColor()
-            { 
+            {
                 let randomColor = '#'+Math.floor(Math.random()*1677215).toString(8);
                 console.log(randomColor);
+                
                 return randomColor;
+                
             }
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
-</body>
+  </body>
 </html>
