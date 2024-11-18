@@ -8,9 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body class="lg:bg-red-100 md:bg-green-100 sm:bg-black font-sans">
     <div id="main-box" class="w-[80%] mx-auto">
-        <div class="addbox w-fit mx-auto mt-6 bg-white p-6 border border-gray-300 shadow-md rounded-lg max-w-[500px] mx-auto mb-5">
+        <div
+            class="addbox w-fit mx-auto mt-6 bg-white p-6 border border-gray-300 shadow-md rounded-lg max-w-[500px] mx-auto mb-5">
             <input type="text" id="nameInput" name="name"
                 class="border border-gray-300 w-full mb-3 outline-none px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
                 placeholder="Add a new name" />
@@ -21,28 +22,30 @@
                 class="border border-gray-300 w-full mb-3 outline-none px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-400"
                 placeholder="Enter age" />
             <button id="btn" onclick="addNewStudent()"
-                class="bg-blue-600 text-white rounded-md px-4 py-2 w-full mt-2 hover:bg-blue-700 transition">Add
-                Student</button>
+                class="bg-blue-600 text-white rounded-md px-4 py-2 w-full mt-2 hover:bg-blue-700 transition">
+                Add Student
+            </button>
         </div>
         <div class="border bg-white shadow-lg rounded-lg flex items-center justify-between p-8">
             <div class="box w-[45%] min-h-[400px] max-h-[90%] border border-gray-300 p-5 rounded-lg overflow-y-auto">
-                <h1 class="mb-3 text-center text-xl font-semibold text-blue-600">Students below 18</h1>
+                <h1 class="mb-3 text-center text-xl font-semibold text-blue-600">
+                    Students below 18
+                </h1>
                 <ul id="below18box" class="pb-6 mb-3 space-y-2"></ul>
             </div>
 
             <div class="box w-[45%] min-h-[400px] max-h-[90%] border border-gray-300 p-5 rounded-lg overflow-y-auto">
-                <h1 class="mb-3 text-center text-xl font-semibold text-green-600">Students above 18</h1>
+                <h1 class="mb-3 text-center text-xl font-semibold text-green-600">
+                    Students above 18
+                </h1>
                 <ul id="above18box" class="pb-6 mb-3 space-y-2"></ul>
             </div>
         </div>
-
-        
     </div>
 
     <script>
         const above18box = document.querySelector("#above18box");
         const below18box = document.querySelector("#below18box");
-
         const newName = document.querySelector("#nameInput");
         const newAge = document.querySelector("#ageInput");
         const newMatric = document.querySelector("#matricInput");
@@ -59,42 +62,47 @@
             { name: "Ivy Clark", matric_number: "MAT12353", age: 39 },
             { name: "Jack White", matric_number: "MAT12354", age: 50 },
         ];
-       
-        const removeStudent = (MatNum)=>{
-            students = students.filter((student)=> student.matric_number != MatNum)
+
+        const removeStudent = (MatNum) => {
+            students = students.filter(
+                (student) => student.matric_number != MatNum
+            );
             above18box.innerHTML = "";
             below18box.innerHTML = "";
             initializeApp();
-        }
-
+        };
 
         const initializeApp = () => {
             const above18Array = students.filter((student) => student.age >= 18);
             const below18Array = students.filter((student) => student.age < 18);
             above18Array.forEach((student, index) => {
                 above18box.innerHTML += `
-            <li class="flex justify-between text-gray-700 px-3 py-2 bg-green-100 rounded-md hover:bg-green-200 transition">${index + 1}: ${student.name}, age: ${student.age}, matric: ${student.matric_number}
-                    <button id="btn"  onclick="removeStudent('${student.matric_number}')"
+            <li class="flex justify-between text-gray-700 px-3 py-2 bg-green-100 rounded-md hover:bg-green-200 transition">${index + 1
+                    }: ${student.name}, age: ${student.age}, matric: ${student.matric_number
+                    }
+                    <button id="btn"  onclick="removeStudent('${student.matric_number
+                    }')"
                 class="bg-red-500 text-white rounded-md px-4 py-2  mt-2 hover:bg-blue-700 transition">Delete</button>
             </li>
-            `
+            `;
             });
             below18Array.forEach((student, index) => {
                 below18box.innerHTML += `
-            <li class="flex justify-between  text-gray-700 px-3 py-2 bg-blue-100 rounded-md hover:bg-blue-200 transition">${index + 1}: ${student.name}, age: ${student.age}, matric: ${student.matric_number}
+            <li class="flex justify-between  text-gray-700 px-3 py-2 bg-blue-100 rounded-md hover:bg-blue-200 transition">${index + 1
+                    }: ${student.name}, age: ${student.age}, matric: ${student.matric_number
+                    }
                  <button onclick="removeStudent('${student.matric_number}')"
                 class="bg-red-500 text-white rounded-md px-4 py-2  mt-2 hover:bg-blue-700 transition">Delete</button></li>
-            `
+            `;
             });
         };
         initializeApp();
-        
 
         const addNewStudent = () => {
             let newStudent = {
                 name: newName.value,
                 age: parseInt(newAge.value),
-                matric_number: newMatric.value
+                matric_number: newMatric.value,
             };
             students.push(newStudent);
 
@@ -106,9 +114,37 @@
 
             initializeApp();
         };
+
+        // fetch external data
+        const fetchData = async () => {
+            try {
+                const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+                const newResponse = response.json();
+
+                console.log(newResponse);
+            } catch (error) {
+                console.log(error);
+
+            }
+        };
+        // fetchData();
+        const fetchDataWithThen = () => {
+            fetch("https://jsonplaceholder.typicode.com/todoS").then((response) => {
+                console.log(response);
+
+                return response.json()
+                
+            }).then((response) => {
+                // console.log(response);
+            }).catch((error) => {
+                console.log(error);
+
+            })
+        };
+
+        fetchDataWithThen()
+
     </script>
 </body>
 
-</html> 
-
-
+</html>
