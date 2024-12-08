@@ -7,7 +7,7 @@ function fetchData(callback, time) {
             reject("our promise was bad")
         }
     })
-}
+};
 
 
 // fetchData(() => {
