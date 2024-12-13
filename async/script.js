@@ -19,7 +19,12 @@ fetch('https://jsonplaceholder.typicode.com/todos')
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
+        console.log(response);
+
         return response.json(); // Parse JSON response
     })
     .then(data => domData(data)) // Handle parsed data
     .catch(error => console.error('There was a problem:', error));
+
+
+// jwt token
